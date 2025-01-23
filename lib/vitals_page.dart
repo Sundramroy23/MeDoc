@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medoc/useful_widgets.dart';
 
-class CustomDesignPage extends StatelessWidget {
-  const CustomDesignPage({super.key});
+class VitalsPage extends StatelessWidget {
+  const VitalsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +14,12 @@ class CustomDesignPage extends StatelessWidget {
             children: [
               // Green area at the top
               Container(
-                height: 200, // Adjust the height as needed
+                height: 250, // Adjust the height as needed
                 decoration: const BoxDecoration(
                   color: Color.fromRGBO(116, 201, 196, 1), // Green color
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(32), // Rounded corners
-                    bottomRight: Radius.circular(32),
+                    bottomLeft: Radius.circular(50), // Rounded corners
+                    bottomRight: Radius.circular(50),
                   ),
                 ),
               ),
@@ -32,7 +32,7 @@ class CustomDesignPage extends StatelessWidget {
               ),
               // Floating card
               Positioned(
-                top: 125, // Adjust the position to make it overlap
+                top: 175, // Adjust the position to make it overlap
                 left: 25,
                 right: 25,
                 child: Card(

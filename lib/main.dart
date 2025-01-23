@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medoc/diet_page.dart';
 import 'home_page.dart';
 import 'vitals_page.dart';
 
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: "Medoc",
       // home: HomePage(),
-      home: CustomDesignPage(),
+      // home: VitalsPage(),
+      home: DietPage(),
     );
   }
 }
