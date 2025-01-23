@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'useful_widgets.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,21 +38,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                    bottom: 16.0), // Adds padding below the arrow icon
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12),
-                  alignment: Alignment.center,
-                  width: 40,
-                  height: 30,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(213, 238, 237, 1),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Icon(Icons.arrow_back_ios),
-                ),
-              ),
+              ArrowButton(arrowTheme: Color.fromRGBO(213, 238, 237, 1)),
               Expanded(
                 child: ListView.separated(
                     itemCount: 4,
@@ -97,8 +84,8 @@ class CardItem extends StatelessWidget {
           ),
           child: Container(
             alignment: Alignment.bottomLeft,
-            width: 250,
-            height: 120,
+            width: 350,
+            height: 150,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
