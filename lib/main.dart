@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medoc/diet_page.dart';
+import 'package:medoc/women_health.dart';
+import 'package:medoc/women_health_extension.dart';
 import 'home_page.dart';
 import 'vitals_page.dart';
 import 'diet_extension.dart';
@@ -17,8 +19,10 @@ class MyApp extends StatelessWidget {
       title: "Medoc",
       // home: HomePage(),
       // home: VitalsPage(),
-      home: DietSelection(),
+      // home: DietSelection(),
       // home: DietPage(),
+      // home: WomenHealth(),
+      home: WomenHealthExtension(),
     );
   }
 }
