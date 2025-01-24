@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:intl/intl.dart';
 // ArrowButton widget
 class ArrowButton extends StatelessWidget {
   final Color arrowTheme;
@@ -133,5 +133,45 @@ class WomenPageStackedContainer extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class WeekDates {
+  List<Map<String, String>> getCurrentWeekDates() {
+    // Get today's date
+    DateTime today = DateTime.now();
+
+    // Find the start of the week (Sunday)
+    int weekday = today.weekday;
+    DateTime startOfWeek = today.subtract(Duration(days: weekday % 7));
+
+    // Generate a list of dates for the current week
+    List<Map<String, String>> weekDates = [];
+    for (int i = 0; i < 7; i++) {
+      DateTime currentDate = startOfWeek.add(Duration(days: i));
+      weekDates.add(
+        {
+          'day':
+              DateFormat('EEEE').format(currentDate), // Day name (e.g., Sunday)
+          'date': DateFormat('dd').format(currentDate), // Day of the month
+        },
+      );
+    }
+    return weekDates;
+  }
+
+  String getCurrentDate() {
+    DateTime today = DateTime.now();
+    return DateFormat('dd').format(today);
+  }
+
+  String getCurrentYear() {
+    DateTime today = DateTime.now();
+    return today.year.toString();
+  }
+
+  String getCurrentMonth() {
+    DateTime today = DateTime.now();
+    return DateFormat('MMMM').format(today);
   }
 }
