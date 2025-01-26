@@ -44,10 +44,19 @@ class _FoodItemsState extends State<FoodItems> {
   String dropdownValue = 'Drop1';
   @override
   Widget build(BuildContext context) {
+    List<String> foodItems = [
+      "Coffe with milk",
+      "Sandwich",
+      "Tomato",
+      "Сucumber",
+      "Tea without sugar",
+      "Boiled egg",
+      "Avocado"
+    ];
     return Expanded(
       child: ListView.builder(
         padding: const EdgeInsets.only(top: 20),
-        itemCount: 5,
+        itemCount: foodItems.length,
         itemBuilder: (context, index) {
           return Container(
             width: 200,
@@ -84,19 +93,18 @@ class _FoodItemsState extends State<FoodItems> {
                           )
                         },
                         icon: Icon(Icons.keyboard_arrow_down),
-                        
                         items: const [
                           DropdownMenuItem<String>(
                             value: "Drop1",
-                            child: Text("Drop1"),
+                            child: Text("100 g"),
                           ),
                           DropdownMenuItem<String>(
                             value: "Drop2",
-                            child: Text("Drop2"),
+                            child: Text("200 g"),
                           ),
                           DropdownMenuItem<String>(
                             value: "Drop3",
-                            child: Text("Drop3"),
+                            child: Text("300 g"),
                           ),
                         ],
                       ),
@@ -110,7 +118,7 @@ class _FoodItemsState extends State<FoodItems> {
                     // color: Colors.yellow,
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Some Text",
+                      foodItems[index],
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -198,17 +206,23 @@ class _StackWidgetState extends State<StackWidget> {
                     ),
 
                     // Space between Icon and Text
-                    Spacer(),
+                    Spacer(
+                      flex: 1,
+                    ),
 
                     // Text
                     Text(
-                      "Some Text\nSome Text",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 14), // Reduced font size
+                      "Lunch",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold), // Reduced font size
                     ),
 
                     // Space between Text and Minus Icon
-                    Spacer(),
+                    Spacer(
+                      flex: 4,
+                    ),
 
                     // Minus Icon
                     Container(

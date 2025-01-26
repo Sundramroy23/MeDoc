@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:medoc/useful_widgets.dart';
 
 class WomenHealth extends StatefulWidget {

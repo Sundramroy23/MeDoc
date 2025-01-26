@@ -6,6 +6,13 @@ class DietPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> menu = [
+      "Breakfast",
+      "Morning Snacks",
+      "Lunch",
+      "Evening Snacks",
+      "Dinner"
+    ];
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +65,7 @@ class DietPage extends StatelessWidget {
 
                             // Text
                             Text(
-                              "Some Text\nSome Text",
+                              "Current Weight\n 59 kgs",
                               textAlign: TextAlign.center,
                               style:
                                   TextStyle(fontSize: 14), // Reduced font size
@@ -117,9 +124,9 @@ class DietPage extends StatelessWidget {
 
                           // Text
                           Text(
-                            "Current Weight\nSome Text",
+                            "1024/2000 kcal",
                             textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 14), // Reduced font size
+                            style: TextStyle(fontSize: 18), // Reduced font size
                           ),
 
                           // Space between Text and Minus Icon
@@ -151,7 +158,7 @@ class DietPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.only(top: 0),
-              itemCount: 5,
+              itemCount: menu.length,
               itemBuilder: (context, index) {
                 return Container(
                   width: 200,
@@ -185,7 +192,7 @@ class DietPage extends StatelessWidget {
                           // color: Colors.yellow,
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            "Some Text",
+                            menu[index],
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

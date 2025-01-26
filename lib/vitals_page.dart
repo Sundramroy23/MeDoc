@@ -6,6 +6,13 @@ class VitalsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, String>> vals = [
+      {"val1": "--/--mmHg", "val2": "Blood Pressure"},
+      {"val1": "--/--mmHg", "val2": "spO2"},
+      {"val1": "--/--mmHg", "val2": "Blood Pressure"},
+      {"val1": "Relaxed", "val2": "Stress Level"}
+    ];
+
     return Scaffold(
       body: Column(
         children: [
@@ -31,8 +38,44 @@ class VitalsPage extends StatelessWidget {
                 ),
               ),
               // Floating card
+              // Positioned(
+              //   top: 175, // Adjust the position to make it overlap
+              //   left: 25,
+              //   right: 25,
+              //   child: Card(
+              //     elevation: 6,
+              //     shape: RoundedRectangleBorder(
+              //       borderRadius: BorderRadius.circular(36),
+              //     ),
+              //     child: Container(
+              //       height: 150, // Card height
+              //       padding: const EdgeInsets.all(16),
+              //       child: Column(
+              //         crossAxisAlignment: CrossAxisAlignment.start,
+              //         children: [
+              //           const Text(
+              //             "Floating Card",
+              //             style: TextStyle(
+              //               fontSize: 18,
+              //               fontWeight: FontWeight.bold,
+              //             ),
+              //           ),
+              //           const SizedBox(height: 8),
+              //           const Text(
+              //             "This card overlaps the green area and the white background.",
+              //             style: TextStyle(
+              //               fontSize: 14,
+              //               color: Colors.black54,
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // Second Floating Card for kcal and steps
               Positioned(
-                top: 175, // Adjust the position to make it overlap
+                top: 165, // Adjust position to move it further down
                 left: 25,
                 right: 25,
                 child: Card(
@@ -41,25 +84,98 @@ class VitalsPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(36),
                   ),
                   child: Container(
-                    height: 150, // Card height
+                    height: 175, // Height for this card
                     padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Row(
                       children: [
-                        const Text(
-                          "Floating Card",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(Icons.fastfood,
+                                      size: 30), // kcal icon
+                                  const SizedBox(width: 8),
+                                  Text.rich(
+                                    TextSpan(
+                                      text: "569", // Larger text
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: "/2000 kcal", // Smaller text
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 16),
+                              Row(
+                                children: [
+                                  const Icon(Icons.directions_walk,
+                                      size: 30), // steps icon
+                                  const SizedBox(width: 8),
+                                  Text.rich(
+                                    TextSpan(
+                                      text: "2048", // Larger text
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: "/6000 steps", // Smaller text
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 16),
+                              Row(
+                                children: [
+                                  const Icon(Icons.fastfood,
+                                      size: 30), // kcal icon
+                                  const SizedBox(width: 8),
+                                  Text.rich(
+                                    TextSpan(
+                                      text: "1024", // Larger text
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: "/2000 kcal", // Smaller text
+                                          style: const TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
-                        const SizedBox(height: 8),
-                        const Text(
-                          "This card overlaps the green area and the white background.",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black54,
-                          ),
+                        const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                          size: 60, // Large heart icon
                         ),
                       ],
                     ),
@@ -81,7 +197,7 @@ class VitalsPage extends StatelessWidget {
                     1, // Ensures square cards (width:height = 1:1)
               ),
               padding: const EdgeInsets.all(16),
-              itemCount: 4,
+              itemCount: vals.length, // Use length of vals
               itemBuilder: (context, index) {
                 return SizedBox(
                   width: 150, // Fixed width
@@ -95,18 +211,18 @@ class VitalsPage extends StatelessWidget {
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Text(
-                            "--/-- mmHg",
-                            style: TextStyle(
+                            vals[index]["val1"]!, // Display val1 dynamically
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 8),
+                          const SizedBox(height: 8),
                           Text(
-                            "Blood Pressure",
-                            style: TextStyle(
+                            vals[index]["val2"]!, // Display val2 dynamically
+                            style: const TextStyle(
                               fontSize: 14,
                               color: Colors.black54,
                             ),
